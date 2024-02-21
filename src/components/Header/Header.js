@@ -7,6 +7,7 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import UnstyledButton from "../UnstyledButton/UnstyledButton";
 import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -29,26 +30,29 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </DesktopNav>
         <Side />
-        <MobileHeader>
+        <MobileActions>
           <UnstyledButton>
             <Icon id="shopping-bag" strokeWidth={iconStrokeWidth} />
+            <VisuallyHidden>Open shopping cart</VisuallyHidden>
           </UnstyledButton>
           <UnstyledButton>
             <Icon id="search" strokeWidth={iconStrokeWidth} />
+            <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
           <UnstyledButton onClick={openMobileMenu}>
             <Icon id="menu" strokeWidth={iconStrokeWidth} />
+            <VisuallyHidden>Open menu</VisuallyHidden>
           </UnstyledButton>
-        </MobileHeader>
+        </MobileActions>
       </MainHeader>
 
       <MobileMenu
@@ -68,10 +72,17 @@ const MainHeader = styled.div`
 
   @media ${QUERIES.tabletAndDown} {
     border-top: ${COLORS.gray[900]} solid 4px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
@@ -83,6 +94,10 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+  
+  @media ${QUERIES.tabletAndDown} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
@@ -97,12 +112,16 @@ const NavLink = styled.a`
   }
 `;
 
-const MobileHeader = styled.div`
+const MobileActions = styled.div`
   display: none;
 
   @media ${QUERIES.tabletAndDown} {
     display: flex;
-    gap: Min(34px, 5vw);
+    gap: 34px;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 17px;
   }
 `;
 
