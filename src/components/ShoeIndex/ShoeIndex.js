@@ -14,12 +14,12 @@ const ShoeIndex = ({ sortId, setSortId }) => {
     <Wrapper>
       <MainColumn>
         <Header>
-          <MobileTitle>
-            <MobileBreadCrumbs>
-              <FilledBreadCrumbs />
-            </MobileBreadCrumbs>
+          <div>
+            <MobileBreadcrumbs>
+              <ShoeBreadcrumbs />
+            </MobileBreadcrumbs>
             <Title>Running</Title>
-          </MobileTitle>
+          </div>
           <SelectWrapper>
             <Select
                 label="Sort"
@@ -35,7 +35,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <FilledBreadCrumbs />
+        <ShoeBreadcrumbs />
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
@@ -68,7 +68,7 @@ const Header = styled.header`
   align-items: baseline;
   
   @media ${QUERIES.tabletAndDown} {
-    align-items: center;
+    align-items: flex-end;
   }
 `;
 
@@ -77,7 +77,7 @@ const Title = styled.h2`
   font-weight: ${WEIGHTS.medium};
 `;
 
-const FilledBreadCrumbs = () => {
+const ShoeBreadcrumbs = () => {
   return (
     <Breadcrumbs>
       <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
@@ -89,15 +89,13 @@ const FilledBreadCrumbs = () => {
   );
 }
 
-const MobileBreadCrumbs = styled.div`
+const MobileBreadcrumbs = styled.div`
   display: none;
   
   @media ${QUERIES.tabletAndDown} {
     display: revert;
   }
 `;
-
-const MobileTitle = styled.div``;
 
 const SelectWrapper = styled.div`
   @media ${QUERIES.phoneAndDown} {
