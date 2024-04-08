@@ -29,10 +29,11 @@ const Header = () => {
         <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/men">Gentlemen</NavLink>
+          <NavLink href="/women">Ladies</NavLink>
+          <NavLink href="/kids">Children</NavLink>
+          <NavLink href="/kids">Children</NavLink>
+          <NavLink href="/collections">Fancy&nbsp;Collections</NavLink>
         </DesktopNav>
         <Side />
         <MobileActions>
@@ -60,10 +61,10 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+  overflow: auto;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndDown} {
@@ -80,8 +81,12 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
-  margin: 0px 48px;
+  gap: clamp(
+      1rem,
+      5.6vw - 2.5rem,
+      3rem
+  );
+  margin: 0 48px;
 
   @media ${QUERIES.tabletAndDown} {
     display: none;
