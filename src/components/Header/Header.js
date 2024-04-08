@@ -19,10 +19,6 @@ const Header = () => {
 
   const iconStrokeWidth = 2.25;
 
-  const openMobileMenu = React.useCallback(() => {
-    setShowMobileMenu(true);
-  }, []);
-
   return (
     <header>
       <SuperHeader />
@@ -48,7 +44,7 @@ const Header = () => {
             <Icon id="search" strokeWidth={iconStrokeWidth} />
             <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
-          <UnstyledButton onClick={openMobileMenu}>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={iconStrokeWidth} />
             <VisuallyHidden>Open menu</VisuallyHidden>
           </UnstyledButton>

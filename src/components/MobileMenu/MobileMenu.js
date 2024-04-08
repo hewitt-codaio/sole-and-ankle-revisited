@@ -6,7 +6,7 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
-import {COLORS} from "../../constants";
+import {COLORS, WEIGHTS} from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -14,7 +14,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   }
 
   return (
-    <BackgroundMask>
+    <BackgroundMask isOpen={isOpen} onDismiss={onDismiss}>
       <Background>
           <CloseButton onClick={onDismiss}>
               <Icon id="close" />
@@ -39,9 +39,10 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   );
 };
 
-const BackgroundMask = styled.div`
+const BackgroundMask = styled(DialogOverlay)`
+  display: flex;
+  justify-content: flex-end;
   position: fixed;
-  z-index: 1;
   top: 0;
   bottom: 0;
   left: 0;
@@ -49,28 +50,26 @@ const BackgroundMask = styled.div`
   background: #60646CCC;
 `;
 
-const Background = styled.div`
+const Background = styled(DialogContent)`
   display: flex;
   flex-direction: column;
   background: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 15%;
-  right: 0;
+  height: 100%;
+  width: 300px;
   padding: 32px;
 `;
 
 const CloseButton = styled(UnstyledButton)`
     position: fixed;
-    top: 26px;
-    right: 16px;
+    top: 10px;
+    right: 0;
+    padding: 16px;
 `;
 
 const Nav = styled.div`
     display: flex;
   flex-direction: column;
-  gap: ${22 / 16}rem;
+  gap: 1rem;
   text-transform: uppercase;
 `;
 
@@ -78,7 +77,10 @@ const NavLink = styled.a`
   color: ${COLORS.gray['900']};
   text-decoration: none;
   font-size: ${18 / 16}rem;
-  font-weight: 600;
+  font-weight: ${WEIGHTS.medium};
+    &:first-of-type {
+        color: ${COLORS.secondary};
+    }
 `;
 
 const Header = styled.div`
