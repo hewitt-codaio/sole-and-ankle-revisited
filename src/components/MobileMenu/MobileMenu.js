@@ -47,13 +47,13 @@ const BackgroundMask = styled(DialogOverlay)`
   bottom: 0;
   left: 0;
   right: 0;
-  background: #60646CCC;
+  background: var(--color-backdrop);
 `;
 
 const Background = styled(DialogContent)`
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--color-white);
   height: 100%;
   width: 300px;
   padding: 32px;

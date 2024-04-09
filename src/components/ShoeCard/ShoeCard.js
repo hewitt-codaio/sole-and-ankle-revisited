@@ -104,7 +104,7 @@ const ColorInfo = styled.p`
 
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
-  color: ${COLORS.primary};
+  color: var(--color-primary);
 `;
 
 const Flag = styled.div`
@@ -117,15 +117,15 @@ const Flag = styled.div`
   padding: 0 10px;
   font-size: ${14 / 18}rem;
   font-weight: ${WEIGHTS.bold};
-  color: ${COLORS.white};
+  color: var(--color-white);
   border-radius: 2px;
 `;
 
 const SaleFlag = styled(Flag)`
-  background-color: ${COLORS.primary};
+  background-color: var(--color-primary);
 `;
 const NewFlag = styled(Flag)`
-  background-color: ${COLORS.secondary};
+  background-color: var(--color-primary);
 `;
 
 export default ShoeCard;

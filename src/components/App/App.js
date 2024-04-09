@@ -28,6 +28,8 @@ const Main = styled.main`
   @media ${QUERIES.phoneAndDown} {
     padding: 48px 16px;
   }
+
+  --color-gray-900: var(--color-gray-900);
 `;
 
 export default App;
